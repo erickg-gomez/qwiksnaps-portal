@@ -1,0 +1,18 @@
+<h3>Barbershops</h3>
+<section data-ng-controller="BarbershopsController" data-ng-init="find()">
+	<div class="list-group">
+		<a data-ng-repeat="barbershop in barbershops" data-ng-href="#!/barbershops/{{barbershop._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="barbershop.created | date:'mediumDate'"></span>
+				by
+				<span data-ng-bind="barbershop.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="barbershop.name"></h4>
+			<p class="list-group-item-text" data-ng-bind="barbershops.owner"></p>
+		</a>
+	</div>
+	<h4 class="alert alert-purple text-center pv-lg" data-ng-if="barbershops.$resolved && !barbershops.length">
+		No Barbershops yet, why don't you <a href="/#!/barbershops/create" class="text-yellow">create one</a>?
+	</h4>
+</section>
